@@ -1,12 +1,11 @@
+import path from 'path';
 import { readFile } from 'fs/promises';
 
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)
+  const filePath = path.join(process.cwd(), 'public', `${query.name}.json`);
 
-  const url = process.env.NODE_ENV === 'production' ? `../${query.name}.json` : `public/${query.name}.json`
-  console.log('Debug: ', process)
-
-  const module = await readFile(url, 'utf-8');
+  const module = await readFile(filePath, 'utf-8');
     return {
       pokemon: JSON.parse(module)
     }
