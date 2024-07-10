@@ -1,12 +1,11 @@
-import path from 'path';
-import { readFile } from 'fs/promises';
+import { sql } from "@vercel/postgres";
 
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)
-  const filePath = path.join(process.cwd(), 'public', `${query.name}.json`);
+  
+  const pokemon = await sql`SELECT * FROM pokemons WHERE name = ${query.name};`;
 
-  const module = await readFile(filePath, 'utf-8');
     return {
-      pokemon: JSON.parse(module)
+      pokemon: pokemon.rows[0].data
     }
 })
