@@ -19,9 +19,8 @@ const shareImage = async () => {
       await navigator.share(shareData);
       resultPara.value = "shared successfully";
     } else {
-
+      resultPara.value = "shared is not found";
     }
-    resultPara.value = "shared is not found";
   } catch (err) {
     resultPara.value = `Error: ${err}`;
   }
