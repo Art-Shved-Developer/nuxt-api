@@ -2,9 +2,9 @@
   <div>
     <h1>Welcome to Nuxt!</h1>
     <p>Это тестовый сайт для проверки совместимости navigator.share <br>нативного функционала на мобильных устройствах и Webview</p>
-    <button @click="shareImageUrl">Share Image URL (webp from mindbox)</button>
+    <button @click.stop="shareImageUrl">Share Image URL (webp from mindbox)</button>
     
-    <button @click="shareMarketPlaceUrl">Share Marketplace URL</button>
+    <button @click.stop="shareMarketPlaceUrl">Share Marketplace URL</button>
     
 
     <pre>{{ resultPara }}</pre>
@@ -23,7 +23,7 @@ const shareSite = {
   url: 'https://wee.ae/?utm_source=instagram&utm_medium=blogger&utm_campaign=lifestyleofhaya'
 }
 
-const shareImage = async () => {
+const shareImageUrl = async () => {
   try {
     if (navigator.canShare(shareData)) {
       await navigator.share(shareData);
