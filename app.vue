@@ -48,6 +48,12 @@ const shareMarketPlaceUrl = async () => {
     resultPara.value = `Error: ${err}`;
   }
 }
+
+useSeoMeta({
+  title: 'My Nuxt Site',
+  ogTitle: 'My Amazing Site',
+  ogImage: 'https://wee.ae/_nuxt/logo-desktop.YaNq66LJ.svg',
+})
 </script>
 
 <style lang="stylus">
@@ -65,5 +71,6 @@ button {
   padding 0 12px
   background #fe3f6f
   color #fff
+  margin 20px
 }
 </style>
