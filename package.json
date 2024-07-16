@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --host",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -13,5 +13,8 @@
     "@vercel/postgres": "^0.9.0",
     "nuxt": "^3.12.3",
     "vue": "latest"
+  },
+  "devDependencies": {
+    "stylus": "^0.63.0"
   }
 }
