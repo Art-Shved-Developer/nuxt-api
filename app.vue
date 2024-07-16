@@ -2,7 +2,11 @@
   <div>
     <h1>Welcome to Nuxt!</h1>
     <p>Это тестовый сайт для проверки совместимости navigator.share <br>нативного функционала на мобильных устройствах и Webview</p>
-    <button @click="shareImage">Share button test</button>
+    <button @click="shareImageUrl">Share Image URL (webp from mindbox)</button>
+    
+    <button @click="shareMarketPlaceUrl">Share Marketplace URL</button>
+    
+
     <pre>{{ resultPara }}</pre>
   </div>
 </template>
@@ -13,10 +17,29 @@ const shareData = {
   url: 'https://personalization-web.mindbox.cloud/user-media/35889/bd9c18e4cccb69c97892e25f1850fb31ba610abe973be877fd298d87872bd7b3.webp'
 }
 
+const shareSite = {
+  title: 'WEE MarketPlace Title',
+  text: 'WEE Text into Share content',
+  url: 'https://wee.ae/?utm_source=instagram&utm_medium=blogger&utm_campaign=lifestyleofhaya'
+}
+
 const shareImage = async () => {
   try {
     if (navigator.canShare(shareData)) {
       await navigator.share(shareData);
+      resultPara.value = "shared successfully";
+    } else {
+      resultPara.value = "shared is not found";
+    }
+  } catch (err) {
+    resultPara.value = `Error: ${err}`;
+  }
+}
+
+const shareMarketPlaceUrl = async () => {
+  try {
+    if (navigator.canShare(shareSite)) {
+      await navigator.share(shareSite);
       resultPara.value = "shared successfully";
     } else {
       resultPara.value = "shared is not found";
