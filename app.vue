@@ -5,7 +5,8 @@
       Webview</p>
 
     <button v-if="5 > 9" @click="shareImageUrl">Share Image URL (webp from mindbox)</button>
-    <button v-if="5 > 9" @click="shareMarketPlaceUrl">Share Marketplace URL</button>
+
+    <button @click="shareMarketPlaceUrl">Share Marketplace URL Social and Messengers</button>
 
     <div class="box-case">
       <p>Открыть камеру и сделать фото</p>
@@ -18,8 +19,8 @@
     </div>
     
 
-    <div v-if="5 > 9">
-      <label for="imageInput">Select an image to share object-blob-image:</label>
+    <div class="box-case">
+      <label for="imageInput">Шейринг выбранной фото из Галереи:</label>
       <input id="imageInput" type="file" accept="image/*" @change="handleImageChange" />
       <button @click="shareImage" :disabled="!imageFile">Share Image</button>
     </div>
@@ -117,6 +118,6 @@ button {
 .box-case
   display block
   border 1px dashed black
-  margin 10px
+  margin 50px 10px
   width 300px
 </style>
