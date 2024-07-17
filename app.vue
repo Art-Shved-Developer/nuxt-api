@@ -3,16 +3,22 @@
     <h1>Welcome to Nuxt!</h1>
     <p>Это тестовый сайт для проверки совместимости navigator.share <br>нативного функционала на мобильных устройствах и
       Webview</p>
-    <button @click="shareImageUrl">Share Image URL (webp from mindbox)</button>
-    <button @click="shareMarketPlaceUrl">Share Marketplace URL</button>
 
-    <p>Открыть камеру и сделать фото</p>
-    <input type="file" accept="image/*" capture>
+    <button v-if="5 > 9" @click="shareImageUrl">Share Image URL (webp from mindbox)</button>
+    <button v-if="5 > 9" @click="shareMarketPlaceUrl">Share Marketplace URL</button>
 
-    <p>Открыть галерею и выбрать фото</p>
-    <input type="file" accept="image/*" id="imageInput">
+    <div class="box-case">
+      <p>Открыть камеру и сделать фото</p>
+      <input type="file" accept="image/*" capture>
+    </div>
+    
+    <div class="box-case">
+      <p>Открыть галерею и выбрать фото</p>
+      <input type="file" accept="image/*" id="imageInput">
+    </div>
+    
 
-    <div>
+    <div v-if="5 > 9">
       <label for="imageInput">Select an image to share object-blob-image:</label>
       <input id="imageInput" type="file" accept="image/*" @change="handleImageChange" />
       <button @click="shareImage" :disabled="!imageFile">Share Image</button>
@@ -107,4 +113,10 @@ button {
   color #fff
   margin 20px
 }
+
+.box-case
+  display block
+  border 1px dashed black
+  margin 10px
+  width 300px
 </style>
