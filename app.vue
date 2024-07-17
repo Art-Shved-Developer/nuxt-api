@@ -2,10 +2,14 @@
   <div>
     <h1>Welcome to Nuxt!</h1>
     <p>Это тестовый сайт для проверки совместимости navigator.share <br>нативного функционала на мобильных устройствах и Webview</p>
-    <button @click.stop="shareImageUrl">Share Image URL (webp from mindbox)</button>
+    <button @click="shareImageUrl">Share Image URL (webp from mindbox)</button>
+    <button @click="shareMarketPlaceUrl">Share Marketplace URL</button>
     
-    <button @click.stop="shareMarketPlaceUrl">Share Marketplace URL</button>
-    
+    <p>Открыть камеру и сделать фото</p>
+    <input type="file" accept="image/*" capture>
+
+    <p>Открыть галерею и выбрать фото</p>
+    <input type="file" accept="image/*" id="imageInput">
 
     <pre>{{ resultPara }}</pre>
   </div>
