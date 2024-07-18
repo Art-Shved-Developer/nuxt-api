@@ -4,7 +4,8 @@
     <p>Это тестовый сайт для проверки совместимости navigator.share <br>нативного функционала на мобильных устройствах и
       Webview</p>
 
-    <button v-if="5 > 9" @click="shareImageUrl">Share Image URL (webp from mindbox)</button>
+      <!--
+        <button v-if="5 > 9" @click="shareImageUrl">Share Image URL (webp from mindbox)</button>
 
     <button @click="shareMarketPlaceUrl">Share Marketplace URL Social and Messengers</button>
 
@@ -17,7 +18,7 @@
       <p>Открыть галерею и выбрать фото</p>
       <input type="file" accept="image/*" id="imageInput">
     </div>
-    
+      -->
 
     <div class="box-case">
       <label for="imageInput">Шейринг выбранной фото из Галереи:</label>
@@ -40,6 +41,8 @@ const handleImageChange = (event) => {
 const shareImage = async () => {
   const shareData = {
     files: [imageFile.value],
+    title: "AI примерка заголовок",
+    text: "AI примерка текст",
   };
 
   try {
