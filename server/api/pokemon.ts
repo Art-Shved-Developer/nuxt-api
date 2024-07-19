@@ -6,6 +6,6 @@ export default defineEventHandler(async (event) => {
   const pokemon = await sql`SELECT * FROM pokemons WHERE name = ${query.name};`;
 
     return {
-      pokemon: pokemon.rows[0].data
+      "pokemon": JSON.stringify(pokemon.rows[0].data)
     }
 })
