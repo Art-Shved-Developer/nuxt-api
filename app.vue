@@ -4,6 +4,11 @@
     <p>Это тестовый сайт для проверки совместимости navigator.share <br>нативного функционала на мобильных устройствах и
       Webview</p>
 
+      <button class="t-ui t-ui--xs share-block__btn" @click="shareWhatsapp">
+            <nuxt-icon name="ui/whatsapp" filled/>
+            <span>WhatsApp Share</span>
+      </button>
+
       <!--
         <button v-if="5 > 9" @click="shareImageUrl">Share Image URL (webp from mindbox)</button>
 
@@ -33,6 +38,16 @@
 <script setup>
 const resultPara = ref('')
 const imageFile = ref('')
+const title = ref('Test Title')
+const link = ref('https://wee.ae/product/hesir-pet-soft-shedding-brush-with-self-cleaning-button-blue-28054')
+
+const shareWhatsapp = () => {
+  if (navigator.userAgent.indexOf("Android") !== -1 || navigator.userAgent.indexOf("like Mac") !== -1 || window.webview) {
+      window.open('whatsapp://send?text=' + title.value + ' ' + link.value)
+  } else {
+      window.open('https://web.whatsapp.com:/send?text=' + title.value + ' ' + link.value)
+  }
+}
 
 const handleImageChange = (event) => {
   imageFile.value = event.target.files[0]
