@@ -36,6 +36,33 @@
 </template>
 
 <script setup>
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
+onMounted(() => {
+  // TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBXMKBvgUxAX7e13-EoXUC1xFsURaGbi18",
+  authDomain: "emotivity-b5f30.firebaseapp.com",
+  projectId: "emotivity-b5f30",
+  storageBucket: "emotivity-b5f30.appspot.com",
+  messagingSenderId: "993742973193",
+  appId: "1:993742973193:web:77b5e4e90cb49edeb54bd8",
+  measurementId: "G-FV17P69BKE"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+console.log('Debug: ', analytics)
+})
+
 const resultPara = ref('')
 const imageFile = ref('')
 const title = ref('Test Title')
