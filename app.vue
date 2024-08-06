@@ -38,7 +38,7 @@
 <script setup>
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 onMounted(() => {
   // TODO: Add SDKs for Firebase products that you want to use
@@ -60,7 +60,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-console.log('Debug: ', analytics)
+logEvent(analytics, 'gtm_loaded_benchmark', {
+        "mindboxDeviceUUID": 'f4093ad5-52f4-4d6a-a356-6a91bda2072a',
+        "loadedGTM": 3200
+      }
+);
+
 })
 
 const resultPara = ref('')
